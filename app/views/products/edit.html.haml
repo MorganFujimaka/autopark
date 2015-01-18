@@ -1,0 +1,8 @@
+.col-md-5
+  %h4 Edit product:
+  .form-group
+    = simple_form_for @product do |f|
+      = f.input :title
+      = f.input :description, input_html: {rows: "10"}
+      = f.association :category, prompt: "Choose a category"
+      = f.submit "Update product"

@@ -7,8 +7,48 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>AUTO PARK</h1>
+    </div>
 
-<%= yield %>
+    <div class="col-md-9 sign-in">
+      <% if user_signed_in? %>
+        <span>Hello, <%= current_user.email %></span>
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path %> or 
+        <%= link_to 'Sign up', new_user_registration_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
+<div class="container-fluid">
+  <%= flash_messages %>
+  <div class="row">
+    <div class="col-md-3">
+      <table class="table table-condensed">
+        <h4><%= link_to "All products", products_path %></h4></td>
+        <% Category.all.each do |category| %>
+          <tr>
+            <td class="no-line"><%= link_to category.name, category %></td>
+            <% if user_signed_in? && current_user.is_admin %>
+              <td class="col-md-5 no-line"><%= link_to "Edit", edit_category_path(category), class: "btn btn-default btn-xs" %>
+              <%= link_to "Delete", category, method: :delete, data: {confirm: "Delete category?"}, class: "btn btn-danger btn-xs" %></td>
+            <% end %>
+          </tr>
+          <% end %>
+      </table>
+      <% if user_signed_in? && current_user.is_admin %>
+        <p><%= link_to "Add category", new_category_path, class: "btn btn-primary btn-xs" %></p>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+  </div>
+</div>
 </body>
 </html>
