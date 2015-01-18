@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+input[type=submit] {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+body {
+  margin: 0 2%; 
+}
+
+.table > tbody > tr > td.no-line {
+  border: none;
+}
+
+.table > tbody > tr > td.review-padding-bottom {
+  padding-bottom: 5%;
+}
+
+.sign-in {
+  text-align: right;
+  font-size: 120%;
+  padding-top: 2.5%;
+}
+
+.review-author {
+  font-style: italic;
+}
+
+.no-review {
+  font-style: italic;
+}

@@ -1,0 +1,11 @@
+-if reviews.empty?
+  %p.no-review= 'There are no reviews yet'
+
+%table.table
+  - reviews.newest_first.each do |review|
+    %tr
+      %td.no-line= review.msg
+      - if user_signed_in? && current_user.is_admin
+        %td.col-md-2.no-line= link_to("Edit", edit_product_review_path(id: review.id, product_id: review.product_id), class: "btn btn-default btn-xs") + " " + link_to("Delete", product_review_path(id: review.id, product_id: review.product_id), method: :delete, data: {confirm: "Delete review?"}, class: "btn btn-danger btn-xs")
+    %tr
+      %td.no-line.review-author.review-padding-bottom= review.user.try(:email)
