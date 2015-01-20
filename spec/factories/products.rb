@@ -1,6 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :product do
+    id 1
+    title 'Product'
+    description 'Description'
   end
 end
