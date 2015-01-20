@@ -3,6 +3,10 @@ class ReviewsController < ApplicationController
   load_and_authorize_resource param_method: :product_params
   before_filter :authenticate_user!
 
+  def show
+    redirect_to product_path(id: params[:product_id])
+  end
+
   def create
     @review = Review.new(review_params)
     @review.product_id = params[:product_id]
