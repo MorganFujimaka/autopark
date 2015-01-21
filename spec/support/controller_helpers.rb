@@ -4,13 +4,14 @@ module ControllerHelpers
       allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, {:scope => :user})
       allow(controller).to receive(:current_user).and_return(nil)
     elsif user == 'admin'
+      user = double('user')
       allow(request.env['warden']).to receive(:authenticate!).and_return(user)
       allow(controller).to receive(:current_user).and_return(user)
-      allow(user).to receive(:is_admin).and_return(:true)
+      allow(user).to receive(:is_admin).and_return(true)
     else
       allow(request.env['warden']).to receive(:authenticate!).and_return(user)
       allow(controller).to receive(:current_user).and_return(user)
-      allow(user).to receive(:is_admin).and_return(:false)
+      allow(user).to receive(:is_admin).and_return(false)
     end
   end
 end

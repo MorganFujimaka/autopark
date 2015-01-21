@@ -31,6 +31,7 @@ group :production do
 end
 
 group :test do
+  gem 'pry-rails'
   gem 'minitest'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
