@@ -1,16 +1,19 @@
 .col-md-8
   %h4= @product.title
+  - if @product.image.exists?
+    .col-md-3= image_tag @product.image.url(:preview), class: "img-thumbnail img-responsive"
   %p= @product.description
   - if user_signed_in? && current_user.is_admin
     = link_to "Edit", edit_product_path, class: "btn btn-default btn-xs"
     = link_to "Delete", @product, method: :delete, data: {confirm: "Delete product?"}, class: "btn btn-danger btn-xs"
   - if user_signed_in?
     %hr
-    %h4= "Leave your feedback for this product"
-    .form-group
-      = simple_form_for @review, url: product_reviews_path(product_id: @product.id) do |f|
-        = f.input :msg, label: false, input_html: {rows: "5"}
-        %p= f.submit "Add review"
+  %br
+  %h4= "Leave your feedback for this product"
+  .form-group
+    = simple_form_for @review, url: product_reviews_path(product_id: @product.id) do |f|
+      = f.input :msg, label: false, input_html: {rows: "5"}
+      %p= f.submit "Add review"
   
   %hr
   %h4= "Feedbacks"
