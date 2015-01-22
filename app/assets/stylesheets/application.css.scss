@@ -22,8 +22,36 @@ input[type=submit] {
   @extend .btn-primary;
 }
 
+@font-face {
+    font-family: 'sketchgeometricregular';
+    src: font-url('sketchgeometric-webfont.eot');
+    src: font-url('sketchgeometric-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('sketchgeometric-webfont.woff') format('woff'),
+         font-url('sketchgeometric-webfont.ttf') format('truetype'),
+         font-url('sketchgeometric-webfont.svg#sketchgeometricregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AwakeRegular';
+    src: font-url('awake-regular-webfont.eot');
+    src: font-url('awake-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('awake-regular-webfont.woff') format('woff'),
+         font-url('awake-regular-webfont.ttf') format('truetype'),
+         font-url('awake-regular-webfont.svg#AwakeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
-  margin: 0 2%; 
+  margin: 0 2%;
+  font-family: 'AwakeRegular';
+}
+
+.title {
+  font-family: 'sketchgeometricregular';
 }
 
 .table > tbody > tr > td.no-line {

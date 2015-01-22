@@ -26,5 +26,7 @@ module Shop
       g.test_framework :rspec, fixtures: true, views: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
