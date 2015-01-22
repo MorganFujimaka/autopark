@@ -47,3 +47,13 @@ body {
 .no-review {
   font-style: italic;
 }
+
+.wrap-text {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.no-wrap {
+  width: 100%;
+}
