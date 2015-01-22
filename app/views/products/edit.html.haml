@@ -3,6 +3,7 @@
   .form-group
     = simple_form_for @product do |f|
       = f.input :title
-      = f.input :description, input_html: {rows: "10"}
+      = f.input :description, input_html: {rows: "5"}
       = f.association :category, prompt: "Choose a category"
+      = f.input :image
       = f.submit "Update product"

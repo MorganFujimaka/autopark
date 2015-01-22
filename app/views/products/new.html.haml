@@ -2,7 +2,5 @@
   %h4 New product:
   .form-group
     = simple_form_for @product do |f|
-      = f.input :title
-      = f.input :description, input_html: {rows: "5"}
-      = f.association :category, prompt: "Choose a category"
+      = render partial: 'form', locals: {f: f}
       = f.submit "Add product"
