@@ -48,6 +48,16 @@ input[type=submit] {
 body {
   margin: 0 2%;
   font-family: 'AwakeRegular';
+  color: white;
+  background-color: #4C3D3D;
+}
+
+a {
+  color: #FFCC00;
+}
+
+a:hover {
+  color: #B28F00;
 }
 
 .title {
