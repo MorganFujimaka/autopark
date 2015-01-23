@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Product < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   has_many :reviews, dependent: :destroy
   belongs_to :category
 
@@ -17,3 +22,5 @@ class Product < ActiveRecord::Base
 
   scope :newest_last, -> { order('created_at') }
 end
+
+Product.import

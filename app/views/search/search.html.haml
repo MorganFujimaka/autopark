@@ -1,0 +1,8 @@
+.col-md-3
+  - if @products.empty?
+    %h4 Nothing was found
+  -else
+    %h5= "#{@products.count} articles were found"
+    - @products.each do |product|
+      %h4
+        = link_to product.title, product

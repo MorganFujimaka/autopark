@@ -15,13 +15,19 @@
       <p class="credo">rent a car of your dream</p>
     </div>
 
-    <div class="col-md-9 sign-in">
+    <div class="col-md-7 sign-in">
       <% if user_signed_in? %>
         <span>Hello, <%= current_user.email %></span>
         <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
       <% else %>
         <%= link_to 'Sign in', new_user_session_path %> or 
         <%= link_to 'Sign up', new_user_registration_path %>
+      <% end %>
+    </div>
+    <div class="col-md-2 form-group search">
+      <%= simple_form_for :q, url: search_path, method: :get do |f| %>
+        <%= f.input :search, label: false, placeholder: "Car Search" %>
+        <%= f.submit "", name: nil, style: "display: none" %>
       <% end %>
     </div>
   </div>

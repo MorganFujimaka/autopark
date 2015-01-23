@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get '/contact_us', to: 'static_pages#contact_us'
   post '/send_email', to: 'static_pages#send_email'
 
+  get 'search', to: 'search#search'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
