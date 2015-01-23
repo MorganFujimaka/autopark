@@ -76,6 +76,14 @@ a:hover {
   border: none;
 }
 
+.table > tbody > tr > td.no-line {
+  border: none;
+}
+
+.table > tbody > tr > td.large {
+  font-size: 18px;
+}
+
 .table > tbody > tr > td.review-padding-bottom {
   padding-bottom: 5%;
 }

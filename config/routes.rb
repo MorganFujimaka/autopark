@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  get '/contact_us', to: 'static_pages#contact_us'
+  post '/send_email', to: 'static_pages#send_email'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
