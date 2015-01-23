@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem 'cancancan', '~> 1.10'
 gem 'pry-rails'
 gem 'paperclip'
+gem 'figaro'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

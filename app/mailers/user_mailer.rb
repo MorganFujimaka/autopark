@@ -6,6 +6,6 @@ class UserMailer < ActionMailer::Base
     @email = email
     @text = text
 
-    mail to: "olegkariuk@gmail.com", subject: "AUTO PARK - Message from #{@name}"
+    mail from: @email, to: "olegkariuk@gmail.com", subject: "AUTO PARK - Message from #{@name}"
   end
 end
