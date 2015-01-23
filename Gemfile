@@ -21,6 +21,7 @@ gem 'paperclip'
 gem 'figaro'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
