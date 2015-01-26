@@ -2,7 +2,7 @@
   - if @products.empty?
     %h4 Nothing was found
   -else
-    %h5= "#{@products.count} articles were found"
+    %h5= "#{pluralize(@products.count, 'car')} were found"
     - @products.each do |product|
       %h4
         = link_to product.title, product

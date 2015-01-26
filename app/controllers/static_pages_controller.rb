@@ -10,15 +10,9 @@ class StaticPagesController < ApplicationController
 
   private
 
-  def name
-    params[:message][:name]
-  end
-
-  def email
-    params[:message][:email]
-  end
-
-  def text
-    params[:message][:text]
+  %w(name email text).each do |method|
+    define_method method do
+      params[:message][method.to_sym]
+    end
   end
 end
