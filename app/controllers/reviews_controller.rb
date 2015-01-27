@@ -24,11 +24,12 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    if @review.update_attributes(review_params)
-      flash[:success] = "Review was updated successfully"
-      redirect_to product_path(id: params[:product_id])
-    else
-      render 'edit'
+    respond_to do |format|
+      if @review.update_attributes(review_params)
+        format.json { render json: {display_as: @review.msg} }
+      else
+        format.json { respond_with_bip(@review) }
+      end
     end
   end
 

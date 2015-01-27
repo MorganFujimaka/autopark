@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: 420f6800f189f2ac10334796efc99acf66a4c446
+  specs:
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
+GIT
   remote: git://github.com/plataformatec/simple_form
   revision: c679153ee99aefa39a7583564f2cd4bf9c0ca00b
   specs:
@@ -253,6 +261,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  best_in_place!
   bonsai-elasticsearch-rails
   bootstrap-sass (~> 3.3.1)
   cancancan (~> 1.10)

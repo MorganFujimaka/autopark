@@ -4,8 +4,9 @@
 %table.table
   - reviews.newest_first.each do |review|
     %tr
-      %td.no-line= review.msg
+      %td.no-line= best_in_place_if user_signed_in? && current_user.is_admin, review, :msg, path: product_review_path(id: review.id, product_id: review.product_id), as: :textarea, inner_class: "edit", activator: "#activate_review_#{review.id}_edit"
+
       - if user_signed_in? && current_user.is_admin
-        %td.col-md-2.no-line= link_to("Edit", edit_product_review_path(id: review.id, product_id: review.product_id), class: "btn btn-default btn-xs") + " " + link_to("Delete", product_review_path(id: review.id, product_id: review.product_id), method: :delete, data: {confirm: "Delete review?"}, class: "btn btn-danger btn-xs")
+        %td.col-md-1.no-line= content_tag(:span, nil, class: "glyphicon glyphicon-pencil pointer", id: "activate_review_#{review.id}_edit", title: "Edit") + " " + link_to(content_tag(:span, nil, class: "glyphicon glyphicon-remove"), product_review_path(id: review.id, product_id: review.product_id), method: :delete, data: {confirm: "Delete review?"}, class: "deco-none", title: "Delete")
     %tr
       %td.no-line.review-author.review-padding-bottom= review.user.try(:email)
