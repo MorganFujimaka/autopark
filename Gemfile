@@ -23,6 +23,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails'
 gem 'sidekiq'
+gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

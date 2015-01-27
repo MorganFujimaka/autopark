@@ -1,6 +1,0 @@
-.col-md-8
-  .form-group
-    %h4 Edit review
-    = simple_form_for @review, url: product_review_path(product_id: @review.product_id) do |f|
-      = f.input :msg, label: false, input_html: {rows: "5"}
-      %p= f.submit "Update review"
