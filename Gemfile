@@ -24,6 +24,7 @@ gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails'
 gem 'sidekiq'
 gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
+gem 'fog'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
@@ -32,6 +33,8 @@ end
 group :development do
   gem 'spring'
   gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do

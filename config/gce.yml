@@ -1,0 +1,4 @@
+development:
+  provider: Google
+  google_storage_access_key_id: GOOG22TYIOSTJEUQFISW
+  google_storage_secret_access_key: y3d4+2/ooTmvitsMgGPCfEeS1bAScuRnkb4cZk2Y
