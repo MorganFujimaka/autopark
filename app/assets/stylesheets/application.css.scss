@@ -94,6 +94,10 @@ a:hover {
   background-color: #706464;
 }
 
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+
 .review-author {
   font-style: italic;
 }

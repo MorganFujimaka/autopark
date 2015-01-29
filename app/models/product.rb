@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
     path: ":attachment/:id/:basename_:style.:extension",
     url: "/:attachment/:id/:basename_:style.:extension",
     styles: {
-      thumb:   ['100x100#',  :jpg, :quality => 70],
+      thumb:   ['50x50#',    :jpg, :quality => 70],
       preview: ['200x200#',  :jpg, :quality => 70],
       large:   ['600>',      :jpg, :quality => 70],
       retina:  ['1200>',     :jpg, :quality => 30]

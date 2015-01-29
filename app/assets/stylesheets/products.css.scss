@@ -1,3 +1,16 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.available {
+  background-color: #009900;
+  padding: 5px;
+  border-radius: 10%;
+}
+
+.booked {
+  text-align: center;
+  background-color: #E62E2E;
+  padding: 5px;
+  border-radius: 10%;
+}

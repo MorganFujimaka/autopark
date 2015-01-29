@@ -1,4 +1,7 @@
 %tr{product_id: "#{product.id}"}
-  %td= link_to product.title, product
+  %td.col-md-1.vert-align= image_tag product.image.url(:thumb), class: "img-thumbnail" if product.image.exists?
+  %td.vert-align= link_to product.title, product
+  %td.col-md-1.vert-align= number_to_currency product.price
+  %td.col-md-1.vert-align= product.available ? content_tag(:span, 'Available', class: "available") : content_tag(:span, 'Booked', class: "booked")
   - if user_signed_in? && current_user.is_admin
-    %td.col-md-2= link_to("Edit", edit_product_path(product), class: "btn btn-default btn-xs") + " " + link_to("Delete", product, method: :delete, data: {confirm: "Are you sure?"}, title: "Delete product", class: "btn btn-danger btn-xs", id: "delete-product")
+    %td.col-md-2.vert-align= link_to("Edit", edit_product_path(product), class: "btn btn-default btn-xs") + " " + link_to("Delete", product, method: :delete, data: {confirm: "Are you sure?"}, title: "Delete product", class: "btn btn-danger btn-xs", id: "delete-product")
