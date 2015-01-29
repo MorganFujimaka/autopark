@@ -27,7 +27,7 @@
     </div>
     <div class="col-md-2 form-group search">
       <%= simple_form_for :q, url: search_path, method: :get do |f| %>
-        <%= f.input :search, label: false, placeholder: "Car Search" %>
+        <%= f.input :search, label: false, required: false, placeholder: "Car Search" %>
         <%= f.submit "", name: nil, style: "display: none" %>
       <% end %>
     </div>

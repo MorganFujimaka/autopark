@@ -2,7 +2,7 @@
   %h4 Send a message to us:
   .form-group
     = simple_form_for :message, url: send_email_path do |f|
-      = f.input :name
-      = f.input :email, as: :email
-      = f.input :text, as: :text, input_html: {rows: "5"}
+      = f.input :name, label: false, placeholder: 'Name'
+      = f.input :email, as: :email, label: false, placeholder: 'Email'
+      = f.input :text, as: :text, input_html: {rows: "5"}, label: false, placeholder: 'Enter your message'
       = f.submit 'Send message'

@@ -2,5 +2,5 @@
   %h4 Products:
   %table.table.table-hover
     =render @products.newest_last
-  - if user_signed_in? && current_user.is_admin        
-    %p= link_to "Add product", new_product_path, class: "btn btn-primary btn-small"
+    
+  = add_product

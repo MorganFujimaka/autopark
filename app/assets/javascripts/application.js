@@ -21,6 +21,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $(".best_in_place").best_in_place();
-  $(".alert").fadeOut(3000);
+  $('.best_in_place').best_in_place();
+  $('.alert').fadeOut(3000);
 });
