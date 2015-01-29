@@ -16,9 +16,11 @@
 //= require jquery_ujs
 //= require best_in_place
 //= require best_in_place.purr
+//= require data-confirm-modal
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
   $(".best_in_place").best_in_place();
+  $(".alert").fadeOut(3000);
 });

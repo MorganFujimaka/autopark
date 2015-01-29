@@ -7,6 +7,13 @@ GIT
       railties (>= 3.2)
 
 GIT
+  remote: git://github.com/ifad/data-confirm-modal.git
+  revision: 209afd0f05500b36e43b1ea601da3937ac275d7c
+  specs:
+    data-confirm-modal (1.0.1)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/plataformatec/simple_form
   revision: c679153ee99aefa39a7583564f2cd4bf9c0ca00b
   specs:
@@ -398,6 +405,7 @@ DEPENDENCIES
   cancancan (~> 1.10)
   capybara
   coffee-rails (~> 4.0.0)
+  data-confirm-modal!
   database_cleaner
   devise
   elasticsearch-model

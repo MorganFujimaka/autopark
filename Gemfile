@@ -31,6 +31,7 @@ gem 'sidekiq'
 gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
 gem 'fog'
 gem 'omniauth-facebook'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
