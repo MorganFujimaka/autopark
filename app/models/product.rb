@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
   has_many :reviews, dependent: :destroy
+  has_many :orders
   belongs_to :category
 
   has_attached_file :image, 
@@ -24,6 +25,10 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   scope :newest_last, -> { order('created_at') }
+
+  def set_booked
+    update_attributes(available: false)
+  end
 end
 
 Product.import
