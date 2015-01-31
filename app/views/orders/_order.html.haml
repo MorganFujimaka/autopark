@@ -6,3 +6,4 @@
       = f.submit "Book this car"
   - else
     %p#booked= product.orders.first.try(:user) == current_user ? "Your car is wating for you" : "The car is booked from #{product.orders.first.start_date} to #{product.orders.first.end_date}"
+    
