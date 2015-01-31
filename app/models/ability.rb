@@ -8,6 +8,7 @@ class Ability
     else
      can :read, :all
      can :create, Review
+     can :create, Order
     end
   end
 end

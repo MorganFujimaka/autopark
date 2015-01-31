@@ -1,0 +1,7 @@
+- if user_signed_in?
+  %hr
+  %h4= "Leave your feedback for this product"
+  .form-group
+    = simple_form_for review, url: product_reviews_path(product) do |f|
+      = f.input :msg, label: false, input_html: {rows: "5"}
+      %p= f.submit "Add review"

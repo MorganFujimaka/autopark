@@ -3,18 +3,15 @@
   - if @product.image.exists?
     = image_tag @product.image.url(:preview), class: "img-thumbnail img-responsive wrap-text"
   %p= @product.description
+
+  = render partial: 'orders/order', locals: {product: @product, order: @order}
+
   - if user_signed_in? && current_user.is_admin
     = link_to "Edit", edit_product_path, class: "btn btn-default btn-xs"
     = link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure?"}, title: "Delete product", class: "btn btn-danger btn-xs"
   .row
     .col-md-12
-      - if user_signed_in?
-        %hr
-        %h4= "Leave your feedback for this product"
-        .form-group
-          = simple_form_for @review, url: product_reviews_path(product_id: @product.id) do |f|
-            = f.input :msg, label: false, input_html: {rows: "5"}
-            %p= f.submit "Add review"
+      =render partial: 'reviews/add_review', locals: {review: @review, product: @product}
       
       %hr
       %h4= "Feedbacks"

@@ -238,6 +238,9 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (4.0.4)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.8.2)
     jwt (1.2.1)
     mail (2.5.4)
@@ -418,6 +421,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   minitest
   omniauth-facebook
   paperclip
