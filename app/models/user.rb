@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :reviews
+  has_many :orders
 
   validates :email, uniqueness: true
 

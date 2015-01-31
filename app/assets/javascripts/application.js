@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
@@ -23,4 +24,15 @@
 $(document).ready(function() {
   $('.best_in_place').best_in_place();
   $('.alert').fadeOut(3000);
+});
+
+$(function() {
+  $('#order_start_date').datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: new Date()
+  });
+  $('#order_end_date').datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: new Date()
+  });
 });
