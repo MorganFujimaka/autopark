@@ -7,7 +7,7 @@
   = render partial: 'orders/order', locals: {product: @product, order: @order}
 
   - if user_signed_in? && current_user.is_admin
-    = link_to "Edit", edit_product_path, class: "btn btn-default btn-xs"
+    = link_to "Edit", edit_product_path(@product), class: "btn btn-default btn-xs"
     = link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure?"}, title: "Delete product", class: "btn btn-danger btn-xs"
   .row
     .col-md-12

@@ -87,10 +87,6 @@ a:hover {
   font-size: 18px;
 }
 
-.table > tbody > tr > td.review-padding-bottom {
-  padding-bottom: 5%;
-}
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #706464;
 }
@@ -100,6 +96,7 @@ a:hover {
 }
 
 .review-author {
+  padding-top: 1%;
   font-style: italic;
 }
 

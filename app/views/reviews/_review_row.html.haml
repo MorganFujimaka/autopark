@@ -1,0 +1,5 @@
+%tr{data: {review_id: review.id, product_id: review.product_id}}
+  %td.no-line= (best_in_place_if user_signed_in? && current_user.is_admin, review, :msg, url: product_review_path(id: review.id, product_id: review.product_id), as: :textarea, inner_class: "edit", activator: "#activate_review_#{review.id}_edit") + " " + content_tag(:p, review.user.try(:email), class: "no-line review-author")
+
+  - if user_signed_in? && current_user.is_admin
+    %td.col-md-1.no-line= content_tag(:span, nil, class: "glyphicon glyphicon-pencil pointer", id: "activate_review_#{review.id}_edit", title: "Edit") + " " + content_tag(:span, nil, class: "glyphicon glyphicon-remove pointer delete_review", title: "Delete")

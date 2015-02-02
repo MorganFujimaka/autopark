@@ -2,6 +2,6 @@
   %hr
   %h4= "Leave your feedback for this product"
   .form-group
-    = simple_form_for review, url: product_reviews_path(product) do |f|
+    = simple_form_for review, url: product_reviews_path(product), remote: true do |f|
       = f.input :msg, label: false, input_html: {rows: "5"}
       %p= f.submit "Add review"

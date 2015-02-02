@@ -6,6 +6,7 @@ class Product < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
   has_many :orders
+  has_many :users, through: :orders
   belongs_to :category
 
   has_attached_file :image, 
@@ -28,6 +29,10 @@ class Product < ActiveRecord::Base
 
   def set_booked
     update_attributes(available: false)
+  end
+
+  def booked_dates
+    orders.map { |order| (order.start_date..order.end_date).to_a }.flatten
   end
 end
 

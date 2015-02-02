@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   def show
     @review = Review.new
     @order = Order.new
+    @booked_dates = @product.booked_dates
   end
 
   def new

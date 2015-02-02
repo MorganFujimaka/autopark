@@ -12,11 +12,16 @@ class ReviewsController < ApplicationController
     @review.product_id = params[:product_id]
     @review.user = current_user
 
-    if @review.save
-      flash[:success] = "Review was added successfully"
-      redirect_to product_path(id: params[:product_id])
-    else
-      render 'products/show'
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to product_path(id: params[:product_id]),
+                      notice: "Review was added successfully" }
+        format.js   { render 'products/show'}
+      else
+        format.html { @product = Product.find(params[:product_id])
+                      render 'products/show' }
+        format.js   { render json: @review.errors, status: :unprocessable_entity }
+      end
     end    
   end
 
@@ -32,9 +37,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    flash[:alert] = "Review was deleted"
 
-    redirect_to product_path(id: params[:product_id])
+    render nothing: true
   end
 
   private
