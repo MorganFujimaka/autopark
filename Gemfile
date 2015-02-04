@@ -47,6 +47,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'dalli'
 end
 
 group :test do
