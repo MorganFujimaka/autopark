@@ -47,9 +47,9 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    flash[:alert] = "Product was deleted"
+    #flash[:alert] = "Product was deleted"
 
-    redirect_to '#index'
+    render nothing: true
   end
 
   private
