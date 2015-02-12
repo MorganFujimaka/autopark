@@ -28,6 +28,13 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#search'
 
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :products
+      resources :sessions, only: [:create, :destroy]
+    end
+  end
+
   # Example resource route with options:
   #   resources :products do
   #     member do

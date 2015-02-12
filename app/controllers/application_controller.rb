@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound do
     redirect_to root_path, alert: controller_name.singularize.capitalize << " cannot be found"
   end
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :auth_token
+  end
 end

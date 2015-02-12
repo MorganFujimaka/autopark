@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :products, through: :orders
 
+  before_create :generate_authentication_token!
+
   validates :email, uniqueness: true
 
   def self.from_omniauth(auth)
@@ -24,5 +26,13 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
       end
     end
+  end
+
+  private
+
+  def generate_authentication_token!
+    begin
+      self.auth_token = Devise.friendly_token
+    end while self.class.exists?(auth_token: auth_token)
   end
 end

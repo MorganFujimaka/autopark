@@ -3,7 +3,7 @@ ruby '2.1.2'
 
 gem 'rails', '4.1.5'
 gem 'pg'
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
