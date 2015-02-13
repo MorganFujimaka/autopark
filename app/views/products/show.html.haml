@@ -1,6 +1,6 @@
 .col-md-8
   %h4= @product.title
-  - if @product.image.exists?
+  - if @product.image?
     = image_tag @product.image.url(:preview), class: "img-thumbnail img-responsive wrap-text"
   %p= @product.description
 
