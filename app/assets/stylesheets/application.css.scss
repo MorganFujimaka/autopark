@@ -75,6 +75,11 @@ a:hover {
   text-align: center;
 }
 
+#signin, #signup {
+  color: #FFCC00;
+  cursor: pointer;
+}
+
 .table > tbody > tr > td.no-line {
   border: none;
 }
@@ -92,7 +97,7 @@ a:hover {
 }
 
 .table tbody>tr>td.vert-align{
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .review-author {
@@ -123,7 +128,7 @@ a:hover {
   background-color: #706464;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 100%;
 }
 
 .modal-footer {

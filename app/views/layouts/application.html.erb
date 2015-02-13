@@ -21,8 +21,8 @@
         <span>Hello, <%= current_user.email %></span>
         <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
       <% else %>
-        <%= link_to 'Sign in', new_user_session_path %> or 
-        <%= link_to 'Sign up', new_user_registration_path %>
+        <span id="signin" data-toggle="modal" data-target="#signIn">Sign In</span> or 
+        <span id="signup" data-toggle="modal" data-target="#signUp">Sign Up</span>
       <% end %>
     </div>
     <div class="col-md-2 form-group search">
@@ -33,6 +33,10 @@
     </div>
   </div>
 </div>
+
+<%= render 'layouts/signin' %>
+<%= render 'layouts/signup' %>
+
 
 <div class="container-fluid">
   <%= flash_messages %>
