@@ -10,9 +10,9 @@ describe "Home Page", type: :feature do
 
   it "have Add product button for admins" do
     User.create(email: 'user@example.com', password: 'password', is_admin: true)
-    visit new_user_session_path
+    visit root_path
 
-    within('#new_user') do
+    within('#signin_form') do
       fill_in 'Email', with: 'user@example.com'
       fill_in 'Password', with: 'password'
     end
