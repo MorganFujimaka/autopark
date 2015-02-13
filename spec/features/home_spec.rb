@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "home page" do
+describe "Home Page", type: :feature do
 
   it "lists all products" do
     visit root_path

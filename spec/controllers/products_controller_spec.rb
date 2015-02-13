@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ProductsController do
+describe ProductsController, type: :controller do
 
   describe "show action" do
     it "renders show template if product is found" do
