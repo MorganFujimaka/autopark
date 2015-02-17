@@ -20,6 +20,7 @@
 @import "bootstrap-social";
 @import "font-awesome";
 @import url(https://fonts.googleapis.com/css?family=Satisfy);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
 
 input[type=submit] {
   @extend .btn;
@@ -51,7 +52,8 @@ input[type=submit] {
 
 body {
   margin: 0 2%;
-  font-family: 'AwakeRegular';
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
   color: white;
   background-color: #4C3D3D;
 }
@@ -65,8 +67,14 @@ a:hover {
 }
 
 .title {
+  position: relative;
+  color: white;
   font-family: 'sketchgeometricregular';
   text-align: center;
+}
+
+.nodecoration {
+  text-decoration: none !important;
 }
 
 .credo {

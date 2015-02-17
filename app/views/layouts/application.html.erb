@@ -12,7 +12,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
-      <h1 class="title">AUTO PARK</h1>
+      <a href="/" class="nodecoration"><h1 class="title">AUTO PARK</h1></a>
       <p class="credo">rent a car of your dream</p>
     </div>
 
@@ -34,9 +34,29 @@
   </div>
 </div>
 
-<%= render 'layouts/signin' %>
-<%= render 'layouts/signup' %>
+<div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render 'devise/sessions/new' %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render 'devise/registrations/new' %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container-fluid">
   <%= flash_messages %>
