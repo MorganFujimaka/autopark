@@ -12,3 +12,5 @@
 $ ->
   $('.best_in_place').best_in_place()
   $('.alert').fadeOut 3000
+  if (window.location.hash == "#sign_in")
+    $('#signIn').modal('show')
