@@ -14,5 +14,12 @@
       =render partial: 'reviews/add_review', locals: {review: @review, product: @product}
       
       %hr
-      %h4= "Feedback"
-      = render partial: 'reviews/reviews', locals: {reviews: @product.reviews.includes(:user)}
+      #tabs
+        %ul
+          %li= link_to 'Feedback', '#feedback'
+          %li= link_to 'Conditions', '#conditions'
+
+        #feedback
+          = render partial: 'reviews/reviews', locals: {reviews: @product.reviews.includes(:user)}
+        #conditions
+          %p In progress

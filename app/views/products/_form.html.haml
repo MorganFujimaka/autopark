@@ -1,4 +1,5 @@
 = f.input :title
 = f.input :description, input_html: {rows: "5"}
 = f.association :category, prompt: "Choose a category"
+= f.input :price, collection: (50..250).step(25), prompt: "Set a price"
 = f.input :image

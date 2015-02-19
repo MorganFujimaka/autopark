@@ -6,5 +6,5 @@
   
   - if user_signed_in? && current_user.is_admin
     %td.col-md-2.vert-align
-      = link_to("Edit", edit_product_path(product), class: "btn btn-default btn-xs")
-      = link_to("Delete", product, method: :delete, remote: true, title: "Delete product", class: "btn btn-danger btn-xs delete-product")
+      = link_to "Edit", edit_product_path(product), class: "btn btn-default btn-xs"
+      = link_to "Delete", '#', title: "Delete product", class: "btn btn-danger btn-xs delete-product"
