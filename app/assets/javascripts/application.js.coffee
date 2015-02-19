@@ -18,4 +18,3 @@ $ ->
     rules:
       'user[password]': { minlength: 8 },
       'user[password_confirmation]': { equalTo: '#user_password' }
-

@@ -25,3 +25,11 @@ $ ->
     $('#delete_product').dialog('open')
 
   $('#tabs').tabs()
+  $('.details').accordion
+    icons:
+      header: 'ui-icon-circle-plus',
+      activeHeader: 'ui-icon-circle-minus'
+    active: false,
+    collapsible: true
+
+  $('#tabs').tabs()

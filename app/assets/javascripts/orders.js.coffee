@@ -4,14 +4,14 @@
 
 $ ->
   $('#order_start_date').datepicker
-    dateFormat: "yy-mm-dd",
-    minDate: new Date(),
+    dateFormat: "D, M d, yy",
+    minDate: 0,
     onSelect: (selected) ->
       $("#order_end_date").datepicker "option","minDate", selected
 
 
   $('#order_end_date').datepicker
-    dateFormat: "yy-mm-dd",
-    minDate: new Date(),
+    dateFormat: "D, M d, yy",
+    minDate: 0,
     onSelect: (selected) ->
       $("#order_start_date").datepicker "option","maxDate", selected

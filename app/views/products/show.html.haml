@@ -1,10 +1,27 @@
 .col-md-8
-  %h4= @product.title
+  %h3= @product.title
   - if @product.image?
     = image_tag @product.image.url(:preview), class: "img-thumbnail img-responsive wrap-text"
   %p= @product.description
 
   = render partial: 'orders/order', locals: {product: @product, order: @order}
+
+  .row
+    .col-md-6
+      .details
+        %h3 Body and chassis
+        %div
+          %p Class: Luxury Car-Sports Car-Roadster
+          %p Body style: 2-door roadster, 2-door coupé
+          %p Layout:  FR layout inline-six variant, FMR layout inline-four variant
+        %h3 Powertrain
+        %div
+          %p Engine: 3.2 L S54B32 I6
+          %p Transmission: 5/6 speed automatic
+        %h3 Dimensions
+        %div
+          %p Wheelbase: 2,495 mm (98.2 in)
+        %br
 
   - if user_signed_in? && current_user.is_admin
     = link_to "Edit", edit_product_path(@product), class: "btn btn-default btn-xs"
@@ -17,9 +34,9 @@
       #tabs
         %ul
           %li= link_to 'Feedback', '#feedback'
-          %li= link_to 'Conditions', '#conditions'
+          %li= link_to 'Questions', '#questions'
 
         #feedback
           = render partial: 'reviews/reviews', locals: {reviews: @product.reviews.includes(:user)}
-        #conditions
-          %p In progress
+        #questions
+          %em Under constructions
