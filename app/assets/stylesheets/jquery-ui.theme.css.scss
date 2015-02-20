@@ -30,7 +30,7 @@
 }
 .ui-widget-content {
 	border: 1px solid #4C3D3D;
-	background: #4C3D3D url("images/ui-bg_flat_10_4C3D3D_40x100.png") 50% 50% repeat-x;
+	background: #4C3D3D image-url("images/ui-bg_flat_10_4C3D3D_40x100.png") 50% 50% repeat-x;
 	color: #fff;
 }
 .ui-widget-content a {
@@ -38,7 +38,7 @@
 }
 .ui-widget-header {
 	border: 1px solid #706464;
-	background: #706464 url("images/ui-bg_flat_15_706464_40x100.png") 50% 50% repeat-x;
+	background: #706464 image-url("images/ui-bg_flat_15_706464_40x100.png") 50% 50% repeat-x;
 	color: #fff;
 	font-weight: bold;
 }
@@ -52,7 +52,7 @@
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
 	border: 1px solid #4C3D3D;
-	background: #4C3D3D url("images/ui-bg_flat_10_4C3D3D_40x100.png") 50% 50% repeat-x;
+	background: #4C3D3D image-url("images/ui-bg_flat_10_4C3D3D_40x100.png") 50% 50% repeat-x;
 	font-weight: normal;
 	color: #fff;
 }
@@ -69,7 +69,7 @@
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
 	border: 1px solid #eceadf;
-	background: #4C3D3D url("images/ui-bg_flat_65_4C3D3D_40x100.png") 50% 50% repeat-x;
+	background: #4C3D3D image-url("images/ui-bg_flat_65_4C3D3D_40x100.png") 50% 50% repeat-x;
 	font-weight: normal;
 	color: #ffffff;
 }
@@ -88,7 +88,7 @@
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
 	border: 1px solid #4C3D3D;
-	background: #4C3D3D url("images/ui-bg_flat_15_4C3D3D_40x100.png") 50% 50% repeat-x;
+	background: #4C3D3D image-url("images/ui-bg_flat_15_4C3D3D_40x100.png") 50% 50% repeat-x;
 	font-weight: normal;
 	color: #fff;
 }
@@ -105,7 +105,7 @@
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
 	border: 1px solid #b2a266;
-	background: #f7f3de url("images/ui-bg_flat_15_f7f3de_40x100.png") 50% 50% repeat-x;
+	background: #f7f3de image-url("images/ui-bg_flat_15_f7f3de_40x100.png") 50% 50% repeat-x;
 	color: #3a3427;
 }
 .ui-state-highlight a,
@@ -117,7 +117,7 @@
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
 	border: 1px solid #681818;
-	background: #b83400 url("images/ui-bg_flat_68_b83400_40x100.png") 50% 50% repeat-x;
+	background: #b83400 image-url("images/ui-bg_flat_68_b83400_40x100.png") 50% 50% repeat-x;
 	color: #ffffff;
 }
 .ui-state-error a,
@@ -163,27 +163,27 @@
 }
 .ui-icon,
 .ui-widget-content .ui-icon {
-	background-image: url("images/ui-icons_222222_256x240.png");
+	background-image: image-url("images/ui-icons_222222_256x240.png");
 }
 .ui-widget-header .ui-icon {
-	background-image: url("images/ui-icons_4C3D3D_256x240.png");
+	background-image: image-url("images/ui-icons_4C3D3D_256x240.png");
 }
 .ui-state-default .ui-icon {
-	background-image: url("images/ui-icons_fff_256x240.png");
+	background-image: image-url("images/ui-icons_fff_256x240.png");
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon {
-	background-image: url("images/ui-icons_ffffff_256x240.png");
+	background-image: image-url("images/ui-icons_ffffff_256x240.png");
 }
 .ui-state-active .ui-icon {
-	background-image: url("images/ui-icons_fff_256x240.png");
+	background-image: image-url("images/ui-icons_fff_256x240.png");
 }
 .ui-state-highlight .ui-icon {
-	background-image: url("images/ui-icons_3572ac_256x240.png");
+	background-image: image-url("images/ui-icons_3572ac_256x240.png");
 }
 .ui-state-error .ui-icon,
 .ui-state-error-text .ui-icon {
-	background-image: url("images/ui-icons_fbdb93_256x240.png");
+	background-image: image-url("images/ui-icons_fbdb93_256x240.png");
 }
 
 /* positioning */
@@ -396,14 +396,14 @@
 
 /* Overlays */
 .ui-widget-overlay {
-	background: #6e4f1c url("images/ui-bg_flat_20_6e4f1c_40x100.png") 50% 50% repeat-x;
+	background: #6e4f1c image-url("images/ui-bg_flat_20_6e4f1c_40x100.png") 50% 50% repeat-x;
 	opacity: .6;
 	filter: Alpha(Opacity=60); /* support: IE8 */
 }
 .ui-widget-shadow {
 	margin: 0 0 0 0;
 	padding: 0;
-	background: #000000 url("images/ui-bg_flat_40_000000_40x100.png") 50% 50% repeat-x;
+	background: #000000 image-url("images/ui-bg_flat_40_000000_40x100.png") 50% 50% repeat-x;
 	opacity: 0;
 	filter: Alpha(Opacity=0); /* support: IE8 */
 	border-radius: 0;
