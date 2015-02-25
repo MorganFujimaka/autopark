@@ -13,3 +13,5 @@
 $ ->
   $('.best_in_place').best_in_place()
   $('.alert').fadeOut 3000
+
+  $('.title').draggable()
