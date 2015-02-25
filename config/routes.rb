@@ -23,10 +23,10 @@ Rails.application.routes.draw do
     resources :orders
   end
   
-  get '/contact_us', to: 'static_pages#contact_us'
-  post '/send_email', to: 'static_pages#send_email'
+  get '/contact_us' => 'static_pages#contact_us'
+  post '/send_email' => 'static_pages#send_email'
 
-  get 'search', to: 'search#search'
+  get 'search' => 'search#search'
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do

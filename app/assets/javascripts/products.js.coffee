@@ -19,7 +19,7 @@ $ ->
     modal: true
 
   $('.delete-product').click ->
-    current_product = $(this).parents('tr')[0]
+    current_product = $(this).closest('tr')
     $('#delete_product').data('current_product', $(current_product))
     
     $('#delete_product').dialog('open')

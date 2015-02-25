@@ -34,9 +34,13 @@
       #tabs
         %ul
           %li= link_to 'Feedback', '#feedback'
-          %li= link_to 'Questions', '#questions'
+          %li= link_to 'Sortable list', '#list'
 
         #feedback
           = render partial: 'reviews/reviews', locals: {reviews: @product.reviews.includes(:user)}
-        #questions
-          %em Under constructions
+        #list
+          %ul#cities
+            %li London
+            %li Madrid
+            %li Berlin
+            %li Amsterdam
