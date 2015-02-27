@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
       format.html
       format.json { render json: @products }
       format.xml { render xml: @products }
+      format.any { redirect_to root_path, alert: "Not supported file format" }
     end
   end
 

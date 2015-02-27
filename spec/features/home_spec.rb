@@ -21,4 +21,10 @@ describe "Home Page", type: :feature do
     expect(page).to have_content('Add product')
   end
 
+  it "tests external url" do
+    visit "https://autopark.herokuapp.com/"
+
+    expect(page).to have_content("Products:")
+  end
+
 end

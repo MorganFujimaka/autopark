@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
+  mount Autopark::Base => '/api'
+
   resources :categories
   
   resources :products do
@@ -27,13 +29,6 @@ Rails.application.routes.draw do
   post '/send_email' => 'static_pages#send_email'
 
   get 'search' => 'search#search'
-
-  namespace :api, defaults: { format: 'json' } do
-    namespace :v1 do
-      resources :products
-      resources :sessions, only: [:create, :destroy]
-    end
-  end
 
   # Example resource route with options:
   #   resources :products do

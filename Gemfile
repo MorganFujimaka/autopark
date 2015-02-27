@@ -33,6 +33,8 @@ gem 'sidekiq'
 gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
 gem 'fog'
 gem 'omniauth-facebook'
+gem 'grape'
+gem 'grape-swagger'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

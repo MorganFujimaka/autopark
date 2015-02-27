@@ -76,4 +76,23 @@ describe ProductsController, type: :controller do
       expect(flash[:alert]).to eq("You are not authorized to access this page.")
     end
   end
+
+  describe "destroy action" do
+    before(:each) do
+      @product = create :product
+      sign_in 'admin'
+    end
+
+    it "should render nothing" do
+      delete :destroy, id: @product.id
+
+      expect(response.body).to be_blank
+    end
+
+    it "destroy a product" do
+      expect {
+        delete :destroy, id: @product.id
+      }.to change(Product, :count).by(-1)
+    end
+  end
 end
