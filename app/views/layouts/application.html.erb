@@ -63,7 +63,7 @@
   <div class="row">
     <div class="col-md-3">
       <table class="table table-condensed">
-        <td class="no-line large"><%= link_to "All products", products_path %></td>
+        <tr><td class="no-line large"><%= link_to "All products", products_path %></td></tr>
         <% Category.all.each do |category| %>
           <tr>
             <td class="no-line large"><%= link_to category.name, category %></td>
@@ -73,7 +73,8 @@
             <% end %>
           </tr>
           <% end %>
-        <td class="no-line large"><%= link_to "Contact us", contact_us_path %></td>
+        <tr><td class="no-line large"><%= link_to "Contact us", contact_us_path %></td></tr>
+        <tr><td class="no-line large"><%= link_to "API", '/api/docs/' %></td></tr>
       </table>
       <% if user_signed_in? && current_user.is_admin %>
         <p><%= link_to "Add category", new_category_path, class: "btn btn-primary btn-xs" %></p>

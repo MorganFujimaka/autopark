@@ -21,9 +21,15 @@ module Autopark::V1::Defaults
       end
     end
 
-    # HTTP header based authentication
     before do
-      error!('Unauthorized', 401) unless headers['Authorization'] == User.last.auth_token
+      error!('Unauthorized', 401) unless authenticated
+    end
+
+    helpers do
+      def authenticated
+        user = User.find_by_email(params[:email])
+        user && user.is_admin && user.valid_password?(params[:password])
+      end
     end
   end
 end
