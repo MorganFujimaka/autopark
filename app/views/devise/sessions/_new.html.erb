@@ -1,21 +1,23 @@
-<div class="col-md-7">
-  <h4>Sign in with form</h4>
-  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :id => 'signin_form'}) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email, label: false, required: true, placeholder: 'Email', autofocus: true %>
-      <%= f.input :password, label: false, required: true, placeholder: 'Password' %>
-      <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-    </div>
+<% cache do %>
+  <div class="col-md-7">
+    <h4>Sign in with form</h4>
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :id => 'signin_form'}) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, label: false, required: true, placeholder: 'Email', autofocus: true %>
+        <%= f.input :password, label: false, required: true, placeholder: 'Password' %>
+        <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign in" %>
-    </div>
-  <% end %>
-</div>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign in" %>
+      </div>
+    <% end %>
+  </div>
 
-<div class="col-md-5">
-  <h4>Or with socials</h4>
-  <a class="btn btn-block btn-social btn-facebook" href="/users/auth/facebook">
-    <i class="fa fa-facebook"></i> Sign in with Facebook
-  </a>
-</div>
+  <div class="col-md-5">
+    <h4>Or with socials</h4>
+    <a class="btn btn-block btn-social btn-facebook" href="/users/auth/facebook">
+      <i class="fa fa-facebook"></i> Sign in with Facebook
+    </a>
+  </div>
+<% end %>
