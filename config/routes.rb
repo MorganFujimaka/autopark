@@ -19,14 +19,13 @@ Rails.application.routes.draw do
   
   resources :products do
     resources :reviews
-  end
-
-  resources :products do
     resources :orders
   end
   
-  get '/contact_us' => 'static_pages#contact_us'
-  post '/send_email' => 'static_pages#send_email'
+  controller :static_pages do 
+    get '/contact_us' => :contact_us
+    post '/send_email' => :send_email
+  end
 
   get 'search' => 'search#search'
 

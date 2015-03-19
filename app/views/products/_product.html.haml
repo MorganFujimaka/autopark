@@ -1,11 +1,11 @@
-- cache product do
-  %tr{product_id: "#{product.id}"}
+%tr{product_id: "#{product.id}"}
+  - cache product do
     %td.col-md-1.vert-align= image_tag product.image.url(:thumb), class: "img-thumbnail" if product.image?
     %td.col-md-4.vert-align= link_to product.title, product
     %td.col-md-1.vert-align= number_to_currency product.price
     %td.col-md-1.vert-align= product.available ? content_tag(:span, 'Available', class: "available") : content_tag(:span, 'Booked', class: "booked")
-    
-    - if user_signed_in? && current_user.is_admin
-      %td.col-md-2.vert-align
-        = link_to "Edit", edit_product_path(product), class: "btn btn-default btn-xs"
-        = link_to "Delete", '#', title: "Delete product", class: "btn btn-danger btn-xs delete-product"
+
+  - if user_signed_in? && current_user.is_admin
+    %td.col-md-2.vert-align
+      = link_to "Edit", edit_product_path(product), class: "btn btn-default btn-xs"
+      = link_to "Delete", '#', title: "Delete product", class: "btn btn-danger btn-xs delete-product"
