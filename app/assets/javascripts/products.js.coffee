@@ -3,12 +3,17 @@ $ ->
     buttons:
       "Confirm": ->
         $(this).dialog('close')
-        $.ajax
+        $.ajax(
           url: '/products/' + $('#delete_product').data('current_product').attr('product_id'),
           type: 'POST',
           data: _method: 'DELETE',
-          success: ->
+          ).done (data) ->
             $('#delete_product').data('current_product').fadeOut(200)
+            $('.flash_messages').append("<div class='alert alert-success'>" + data.notice + "</div>")
+            $('.flash_messages').fadeOut 3000
+          .fail (data) ->
+            $('.flash_messages').append("<div class='alert alert-warning'>" + $.parseJSON(data.responseText).alert + "</div>")
+            $('.flash_messages').fadeOut 3000
       "Cancel": ->
         $(this).dialog('close')
     autoOpen: false,

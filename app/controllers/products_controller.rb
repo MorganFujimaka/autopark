@@ -47,10 +47,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    #flash[:alert] = "Product was deleted"
-
-    render nothing: true
+    if @product.destroy
+      render json: { notice: 'Product was deleted successfully'}, status: 200
+    else
+      render json: { alert: 'Unable to delete. Please try again.' }, status: 422
+    end
   end
 
   private
