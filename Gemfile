@@ -35,6 +35,7 @@ gem 'fog'
 gem 'omniauth-facebook'
 gem 'grape'
 gem 'grape-swagger'
+gem 'will_paginate', '~> 3.0.6'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

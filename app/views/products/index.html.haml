@@ -1,7 +1,8 @@
 .col-md-8
   %h4 Products:
   %table.table.table-hover
-    =render @products.newest_last
+    = render @products.newest_last
+  .pagination-center= will_paginate @products
     
   = add_product
 

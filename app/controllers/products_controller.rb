@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page], per_page: 5)
     respond_to do |format|
       format.html
       format.json { render json: @products }
