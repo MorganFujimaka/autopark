@@ -86,7 +86,7 @@ describe ProductsController, type: :controller do
     it "should render nothing" do
       delete :destroy, id: @product.id
 
-      expect(response.body).to be_blank
+      expect(response).to have_http_status(200)
     end
 
     it "destroy a product" do
