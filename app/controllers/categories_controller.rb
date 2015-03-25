@@ -1,43 +1,28 @@
 class CategoriesController < ApplicationController
-
-  load_and_authorize_resource param_method: :product_params
+  authorize_resource
   before_filter :authenticate_user!, except: :show
 
-  def show
-  end
-
-  def new
-    @category = Category.new
-  end
+  expose(:category, attributes: :category_params)
 
   def create
-    @category = Category.new(category_params)
-
-    if @category.save
-      flash[:success] = "Category was created successfully"
-      redirect_to root_path
+    if category.save
+      redirect_to root_path, success: 'Category was created successfully'
     else
       render 'new'
     end
   end
 
-  def edit
-  end
-
   def update
-    if @category.update_attributes(category_params)
-      flash[:success] = "Category was pdated successfully"
-      redirect_to root_path
+    if category.save
+      redirect_to root_path, success: 'Category was updated successfully'
     else
       render 'edit'
     end
   end
 
   def destroy
-    @category.destroy
-    flash[:alert] = "Category was deleted"
-
-    redirect_to root_path
+    category.destroy
+    redirect_to root_path, success: 'Category was deleted successfully'
   end
 
   private
@@ -45,5 +30,4 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name)
   end
-
 end

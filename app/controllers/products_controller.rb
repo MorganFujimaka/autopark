@@ -1,56 +1,43 @@
 class ProductsController < ApplicationController
-
-  load_and_authorize_resource param_method: :product_params
+  authorize_resource
   before_filter :authenticate_user!, except: [:index, :show]
 
-  def index
-    @products = Product.paginate(page: params[:page], per_page: 5)
-    respond_to do |format|
-      format.html
-      format.json { render json: @products }
-      format.xml { render xml: @products }
-      format.any { redirect_to root_path, alert: "Not supported file format" }
-    end
-  end
+  expose(:product, attributes: :product_params)
+  expose(:products) { Product.paginate(page: params[:page], per_page: 5) }
+  expose(:review) { Review.new }
+  expose(:order) { Order.new }
 
   def show
-    @review = Review.new
-    @order = Order.new
-    @booked_dates = @product.booked_dates
-  end
-
-  def new
-    @product = Product.new
+    return unless product
   end
 
   def create
-    @product = Product.new(product_params)
-
-    if @product.save
-      flash[:success] = "Product was created successfully"
-      redirect_to @product
+    if product.save
+      redirect_to product, success: 'Product was created successfully'
     else
       render 'new'
     end
   end
 
-  def edit
-  end
-
   def update
-    if @product.update_attributes(product_params)
-      flash[:success] = "Product was updated successfully"
-      redirect_to @product
+    if product.save
+      redirect_to product, success: 'Product was updated successfully'
     else
       render 'edit'
     end
   end
 
   def destroy
-    if @product.destroy
-      render json: { notice: 'Product was deleted successfully'}, status: 200
+    if product.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path, success: 'Product was deleted successfully' }
+        format.json { render json: {}, status: 200 }
+      end
     else
-      render json: { alert: 'Unable to delete. Please try again.' }, status: 422
+      respond_to do |format|
+        format.html { redirect_to product, alert: 'Unable to delete. Please try again.' }
+        format.json { render json: {}, status: 422 }
+      end
     end
   end
 

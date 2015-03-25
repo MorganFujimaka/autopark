@@ -1,17 +1,20 @@
 class OrdersController < ApplicationController
-  load_and_authorize_resource param_method: :product_params
+  authorize_resource
   before_filter :authenticate_user!
 
-  def create
-    @order = Order.new(order_params)
-    @order.product_id = params[:product_id]
-    @order.user = current_user
+  expose(:order, attributes: :order_params)
+  expose(:product)
+  expose(:review)
 
-    if @order.save
-      @order.product.set_booked
-      redirect_to @order.product, notice: "Your car has been booked successfully!"
+  def create
+    order.product_id = params[:product_id]
+    order.user = current_user
+
+    if order.save
+      order.product.set_booked
+      redirect_to order.product, success: 'Your car has been booked successfully'
     else
-      render "products/show"
+      render 'products/show'
     end
   end
 

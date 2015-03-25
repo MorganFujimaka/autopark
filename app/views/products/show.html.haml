@@ -1,10 +1,10 @@
 .col-md-8
-  %h3= @product.title
-  - if @product.image?
-    = image_tag @product.image.url(:preview), class: "img-thumbnail img-responsive wrap-text"
-  %p= @product.description
+  %h3= product.title
+  - if product.image?
+    = image_tag product.image.url(:preview), class: "img-thumbnail img-responsive wrap-text"
+  %p= product.description
 
-  = render partial: 'orders/order', locals: {product: @product, order: @order}
+  = render partial: 'orders/order', locals: {product: product, order: order}
 
   .row
     .col-md-6
@@ -24,11 +24,11 @@
         %br
 
   - if user_signed_in? && current_user.is_admin
-    = link_to "Edit", edit_product_path(@product), class: "btn btn-default btn-xs"
-    = link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure?"}, title: "Delete product", class: "btn btn-danger btn-xs"
+    = link_to "Edit", edit_product_path(product), class: "btn btn-default btn-xs"
+    = link_to "Delete", product, method: :delete, data: {confirm: "Are you sure?"}, title: "Delete product", class: "btn btn-danger btn-xs"
   .row
     .col-md-12
-      =render partial: 'reviews/add_review', locals: {review: @review, product: @product}
+      =render partial: 'reviews/add_review', locals: {review: review, product: product}
       
       %hr
       #tabs
@@ -37,7 +37,7 @@
           %li= link_to 'Sortable list', '#list'
 
         #feedback
-          = render partial: 'reviews/reviews', locals: {reviews: @product.reviews.includes(:user)}
+          = render partial: 'reviews/reviews', locals: {reviews: product.reviews.includes(:user)}
         #list
           %ul#cities
             %li London

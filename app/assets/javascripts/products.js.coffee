@@ -6,13 +6,14 @@ $ ->
         $.ajax(
           url: '/products/' + $('#delete_product').data('current_product').attr('product_id'),
           type: 'POST',
+          dataType: 'json',
           data: _method: 'DELETE',
           ).done (data) ->
             $('#delete_product').data('current_product').fadeOut(200)
-            $('.flash_messages').append("<div class='alert alert-success'>" + data.notice + "</div>")
+            $('.flash_messages').append("<div class='alert alert-success'>Product was deleted successfully</div>")
             $('.flash_messages').fadeOut 3000
           .fail (data) ->
-            $('.flash_messages').append("<div class='alert alert-warning'>" + $.parseJSON(data.responseText).alert + "</div>")
+            $('.flash_messages').append("<div class='alert alert-warning'>Unable to delete. Please try again.</div>")
             $('.flash_messages').fadeOut 3000
       "Cancel": ->
         $(this).dialog('close')

@@ -1,6 +1,6 @@
 .col-md-5
   %h4 Edit category:
   .form-group
-    = simple_form_for @category do |f|
+    = simple_form_for category do |f|
       = f.input :name
       = f.submit "Update category"

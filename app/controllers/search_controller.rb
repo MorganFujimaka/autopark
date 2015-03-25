@@ -3,7 +3,7 @@ class SearchController < ApplicationController
     if params[:q].nil?
       @products = []
     else
-      @products = Product.search(params[:q][:search]).records
+      @products = Product.search(params[:q][:search]).records.paginate(page: params[:page], per_page: 5)
     end
   end
 end

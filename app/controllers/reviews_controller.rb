@@ -1,43 +1,35 @@
 class ReviewsController < ApplicationController
-
-  load_and_authorize_resource param_method: :product_params
+  authorize_resource
   before_filter :authenticate_user!
+
+  expose(:review, attributes: :review_params)
+  expose(:reviews)
 
   def show
     redirect_to product_path(id: params[:product_id])
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.product_id = params[:product_id]
-    @review.user = current_user
+    review.product_id = params[:product_id]
+    review.user = current_user
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to product_path(id: params[:product_id]),
-                      notice: "Review was added successfully" }
-        format.js   { render 'products/show'}
-      else
-        format.html { @product = Product.find(params[:product_id])
-                      render 'products/show' }
-        format.js   { render json: @review.errors, status: :unprocessable_entity }
-      end
-    end    
+    if review.save
+      render 'products/show'
+    else
+      render json: review.errors, status: 422
+    end
   end
 
   def update
-    respond_to do |format|
-      if @review.update_attributes(review_params)
-        format.json { render json: {display_as: @review.msg} }
-      else
-        format.json { respond_with_bip(@review) }
-      end
+    if review.save
+      render json: { display_as: review.msg }
+    else
+      respond_with_bip(review)
     end
   end
 
   def destroy
-    @review.destroy
-
+    review.destroy
     render nothing: true
   end
 

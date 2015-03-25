@@ -1,6 +1,6 @@
 .col-md-5
   %h4 New product:
   .form-group
-    = simple_form_for @product do |f|
+    = simple_form_for product do |f|
       = render partial: 'form', locals: {f: f}
       = f.submit "Add product"

@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  decent_configuration do
+    strategy DecentExposure::StrongParametersStrategy
+  end
+
+  add_flash_types :success
+
   protected
 
   def configure_permitted_parameters

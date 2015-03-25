@@ -36,6 +36,7 @@ gem 'omniauth-facebook'
 gem 'grape'
 gem 'grape-swagger'
 gem 'will_paginate', '~> 3.0.6'
+gem 'decent_exposure'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

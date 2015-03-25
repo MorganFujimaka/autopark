@@ -10,7 +10,7 @@ describe ProductsController, type: :controller do
       expect(response).to render_template('show')
     end
 
-    it "redirects to root_path if product cannot be found" do
+    it "redirects to root_path if a product cannot be found" do
       product = create :product
       get :show, {id: 2}
 
@@ -83,10 +83,10 @@ describe ProductsController, type: :controller do
       sign_in 'admin'
     end
 
-    it "should render nothing" do
+    it "should redirect to root_path" do
       delete :destroy, id: @product.id
 
-      expect(response).to have_http_status(200)
+      expect(response).to redirect_to(root_path)
     end
 
     it "destroy a product" do

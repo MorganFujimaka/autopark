@@ -1,8 +1,10 @@
-.col-md-3
+.col-md-8
   - if @products.empty?
-    %h4 Nothing was found
+    %h3 Nothing was found
   -else
-    %h5= "#{pluralize(@products.count, 'car')} were found"
+    %h3= "#{pluralize(@products.count, 'car')} were found:"
+    %br
     - @products.each do |product|
       %h4
         = link_to product.title, product
+  .pagination-center= will_paginate @products

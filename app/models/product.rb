@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
     storage: :fog,
     fog_credentials: "#{Rails.root}/config/gce.yml",
     fog_directory: "autopark"
-
+  
   validates :title, :description, presence: true
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
@@ -29,10 +29,6 @@ class Product < ActiveRecord::Base
 
   def set_booked
     update_attributes(available: false)
-  end
-
-  def booked_dates
-    orders.map { |order| (order.start_date..order.end_date).to_a }.flatten
   end
 end
 
