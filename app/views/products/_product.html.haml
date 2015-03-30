@@ -2,8 +2,7 @@
   - cache product do
     %td.col-md-1.vert-align= image_tag product.image.url(:thumb), class: "img-thumbnail" if product.image?
     %td.col-md-4.vert-align= link_to product.title, product
-    %td.col-md-1.vert-align= number_to_currency product.price
-    %td.col-md-1.vert-align= product.available ? content_tag(:span, 'Available', class: "available") : content_tag(:span, 'Booked', class: "booked")
+    %td.col-md-2.vert-align= number_to_currency product.price
 
   - if user_signed_in? && current_user.is_admin
     %td.col-md-2.vert-align

@@ -11,10 +11,10 @@ $ ->
           ).done (data) ->
             $('#delete_product').data('current_product').fadeOut(200)
             $('.flash_messages').append("<div class='alert alert-success'>Product was deleted successfully</div>")
-            $('.flash_messages').fadeOut 3000
+            $('.flash_messages').fadeOut 5000
           .fail (data) ->
             $('.flash_messages').append("<div class='alert alert-warning'>Unable to delete. Please try again.</div>")
-            $('.flash_messages').fadeOut 3000
+            $('.flash_messages').fadeOut 5000
       "Cancel": ->
         $(this).dialog('close')
     autoOpen: false,
@@ -39,3 +39,5 @@ $ ->
     collapsible: true
 
   $('#tabs').tabs()
+  $('#cities').sortable
+    axis: 'y'

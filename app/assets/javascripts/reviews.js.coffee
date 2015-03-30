@@ -11,9 +11,6 @@ $ ->
           noReviews = ->
             $('#feedback').append("<p class='no-review'>There are no reviews yet</p>")
           setTimeout noReviews, 201
-
-  $('#review_msg').keyup ->
+  $('#add_review').submit ->
     if $('#review_msg').val() == ''
-      $('#add_review').prop('disabled', true)
-    else
-      $('#add_review').prop('disabled', false)
+      return false
