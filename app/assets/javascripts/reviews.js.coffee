@@ -12,10 +12,8 @@ $ ->
             $('#feedback').append("<p class='no-review'>There are no reviews yet</p>")
           setTimeout noReviews, 201
 
-  $('form .new-review').submit ->
-    message = $(this).serialize()
-    $.ajax
-      url: $(this).attr('action'),
-      type: 'POST',
-      data: message,
-      success: ->
+  $('#review_msg').keyup ->
+    if $('#review_msg').val() == ''
+      $('#add_review').prop('disabled', true)
+    else
+      $('#add_review').prop('disabled', false)

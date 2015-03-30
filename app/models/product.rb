@@ -10,17 +10,15 @@ class Product < ActiveRecord::Base
   belongs_to :category
 
   has_attached_file :image, 
-    path: ":attachment/:id/:basename_:style.:extension",
-    url: "/:attachment/:id/:basename_:style.:extension",
-    styles: {
-      thumb:   ['50x50#',    :jpg, :quality => 70],
-      preview: ['200x200#',  :jpg, :quality => 70],
-      large:   ['600>',      :jpg, :quality => 70],
-      retina:  ['1200>',     :jpg, :quality => 30]
-    },
-    storage: :fog,
-    fog_credentials: "#{Rails.root}/config/gce.yml",
-    fog_directory: "autopark"
+                    styles: {
+                      thumb:   ['50x50#',    :jpg, :quality => 70],
+                      preview: ['200x200#',  :jpg, :quality => 70],
+                      large:   ['600>',      :jpg, :quality => 70],
+                      retina:  ['1200>',     :jpg, :quality => 30]
+                    },
+                    path: '/images/:id/:style.:extension',
+                    url: ':s3_domain_url',
+                    region: 'eu-central-1'
   
   validates :title, :description, presence: true
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]

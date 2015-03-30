@@ -1,17 +1,20 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 $ ->
   $('#order_start_date').datepicker
-    dateFormat: "D, M d, yy",
+    dateFormat: 'D, M d, yy',
     minDate: 0,
     onSelect: (selected) ->
-      $("#order_end_date").datepicker "option","minDate", selected
-
+      $('#order_end_date').datepicker 'option','minDate', selected
+    beforeShowDay: (date) ->
+      booked_dates = $('.orders').text().split(', ')
+      current_date = $.datepicker.formatDate('yy-mm-dd', date)
+      return [booked_dates.indexOf(current_date) == -1]
 
   $('#order_end_date').datepicker
-    dateFormat: "D, M d, yy",
+    dateFormat: 'D, M d, yy',
     minDate: 0,
     onSelect: (selected) ->
-      $("#order_start_date").datepicker "option","maxDate", selected
+      $('#order_start_date').datepicker 'option','maxDate', selected
+    beforeShowDay: (date) ->
+      booked_dates = $('.orders').text().split(', ')
+      current_date = $.datepicker.formatDate('yy-mm-dd', date)
+      return [booked_dates.indexOf(current_date) == -1]

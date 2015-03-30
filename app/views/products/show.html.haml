@@ -4,7 +4,7 @@
     = image_tag product.image.url(:preview), class: "img-thumbnail img-responsive wrap-text"
   %p= product.description
 
-  = render partial: 'orders/order', locals: {product: product, order: order}
+  = render partial: 'orders/order'
 
   .row
     .col-md-6
@@ -28,7 +28,7 @@
     = link_to "Delete", product, method: :delete, data: {confirm: "Are you sure?"}, title: "Delete product", class: "btn btn-danger btn-xs"
   .row
     .col-md-12
-      =render partial: 'reviews/add_review', locals: {review: review, product: product}
+      =render partial: 'reviews/add_review'
       
       %hr
       #tabs

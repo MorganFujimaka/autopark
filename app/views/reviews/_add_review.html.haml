@@ -4,4 +4,4 @@
   .form-group
     = simple_form_for review, url: product_reviews_path(product), remote: true do |f|
       = f.input :msg, label: false, input_html: {rows: "5"}
-      %p= f.submit "Add review"
+      %p= f.submit "Add review", id: 'add_review', disabled: true

@@ -1,8 +1,6 @@
-- if product.available
-  = simple_form_for order, url: product_orders_path(product), html: {class: "form-inline", autocomplete: "off"} do |f|
-    = f.input :start_date, as: :string, label: false, placeholder: "Start Date"
-    = f.input :end_date, as: :string, label: false, placeholder: "End Date"
-    = f.submit "Book this car"
-- else
-  %p#booked= product.orders.last.try(:user) == current_user ? "Your car is wating for you" : "The car is booked from #{product.orders.last.try(:start_date)} to #{product.orders.last.try(:end_date)}"
-%br
+= simple_form_for order, url: product_orders_path(product), html: {class: "form-inline", autocomplete: "off"} do |f|
+  = f.input :start_date, as: :string, label: false, placeholder: "Start Date"
+  = f.input :end_date, as: :string, label: false, placeholder: "End Date"
+  = f.submit "Book this car"
+
+= orders_for product
