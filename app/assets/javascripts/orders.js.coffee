@@ -32,13 +32,19 @@ $ ->
         return
 
     if date_intersection
-      $('.flash_messages').append("<div class='alert alert-warning'>Your order contains disabled dates</div>")
-      $('.flash_messages').fadeOut 10000, 'easeInExpo', ->
-        $(this).empty().show()
-      return false
+      if $('.flash_messages > div').length == 0
+        $('.flash_messages').append("<div class='alert alert-warning'>Your order contains disabled dates</div>")
+        $('.flash_messages').fadeOut 7000, 'easeInExpo', ->
+          $(this).empty().show()
+        return false
+      else
+        return false
 
     if $('#order_start_date').val() == '' || $('#order_end_date').val() == ''
-      $('.flash_messages').append("<div class='alert alert-warning'>Please select Start and End Dates</div>")
-      $('.flash_messages').fadeOut 10000, 'easeInExpo', ->
-        $(this).empty().show()
-      return false
+      if $('.flash_messages > div').length == 0
+        $('.flash_messages').append("<div class='alert alert-warning'>Please select Start and End Dates</div>")
+        $('.flash_messages').fadeOut 7000, 'easeInExpo', ->
+          $(this).empty().show()
+        return false
+      else
+        return false
