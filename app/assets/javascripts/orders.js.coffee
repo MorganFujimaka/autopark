@@ -1,6 +1,7 @@
 $ ->
-  @booked_dates = $('.orders').text().split('|')
-  @current_date = (date) ->
+  booked_dates = ->
+    $('.orders').text().split('|')
+  current_date = (date) ->
     $.datepicker.formatDate('D, M d, yy', date)
 
   $('#order_start_date').datepicker
@@ -9,7 +10,7 @@ $ ->
     onSelect: (selected) ->
       $('#order_end_date').datepicker 'option','minDate', selected
     beforeShowDay: (date) ->
-      return [booked_dates.indexOf(current_date(date)) == -1]
+      return [booked_dates().indexOf(current_date(date)) == -1]
 
   $('#order_end_date').datepicker
     dateFormat: 'D, M d, yy',
@@ -17,12 +18,12 @@ $ ->
     onSelect: (selected) ->
       $('#order_start_date').datepicker 'option','maxDate', selected
     beforeShowDay: (date) ->
-      return [booked_dates.indexOf(current_date(date)) == -1]
+      return [booked_dates().indexOf(current_date(date)) == -1]
 
   $('#new_order').submit ->
     date_intersection = undefined
 
-    $.each booked_dates, (index, date) ->
+    $.each booked_dates(), (index, date) ->
       already_booked_date = new Date(date)
       start_date = new Date($('#order_start_date').val())
       end_date = new Date($('#order_end_date').val())

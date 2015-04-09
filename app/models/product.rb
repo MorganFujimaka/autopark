@@ -24,10 +24,6 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   scope :newest_last, -> { order('created_at') }
-
-  def set_booked
-    update_attributes(available: false)
-  end
 end
 
 Product.import

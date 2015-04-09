@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
     order.user = current_user
 
     if order.save
-      order.product.set_booked
       redirect_to order.product, success: 'Your car has been booked successfully'
     else
       render 'products/show'

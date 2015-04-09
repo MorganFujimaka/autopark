@@ -2,10 +2,5 @@
   %h4 Edit product:
   .form-group
     = simple_form_for product do |f|
-      = f.input :title
-      = f.input :description, input_html: {rows: "5"}
-      = f.association :category, prompt: "Choose a category"
-      = f.input :price, collection: (50..250).step(25), prompt: "Set a price"
-      = f.input :available
-      = f.input :image
+      = render partial: 'form', locals: {f: f}
       = f.submit "Update product"
