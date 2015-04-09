@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def send_email
-    UserMailer.message_from_user(name, email, text)
+    UserMailer.message_from_user(name, email, text).deliver_now
 
     redirect_to root_path, notice: 'Message was send successfully'
   end
