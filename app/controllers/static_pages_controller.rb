@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   def send_email
     UserMailer.message_from_user(name, email, text)
 
-    redirect_to root_path, notice: "Message was successfully send"
+    redirect_to root_path, notice: 'Message was send successfully'
   end
 
   private
