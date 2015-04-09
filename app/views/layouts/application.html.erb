@@ -77,7 +77,7 @@
         <tr><td class="no-line large"><%= link_to "API", '/api/docs/' %></td></tr>
       </table>
       <% if user_signed_in? && current_user.is_admin %>
-        <p><%= link_to "Add category", new_category_path, class: "btn btn-primary btn-xs" %></p>
+        <p><%= link_to "Add category", new_category_path, class: "btn btn-primary btn-small" %></p>
       <% end %>
     </div>
 

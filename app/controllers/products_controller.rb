@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   expose(:product, attributes: :product_params)
-  expose(:products) { Product.paginate(page: params[:page], per_page: 5) }
+  expose(:products) { Product.paginate(page: params[:page], per_page: 10) }
   expose(:review) { Review.new }
   expose(:order) { Order.new }
 
