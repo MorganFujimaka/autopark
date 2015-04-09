@@ -1,3 +1,3 @@
-[ ![Codeship Status for MorganFujimaka/shop](https://codeship.com/projects/c7e7ad60-8544-0132-109b-421cd1c7bc9b/status?branch=master)](https://codeship.com/projects/58673)
+[ ![Codeship Status for MorganFujimaka/autopark](https://codeship.com/projects/9b964c90-c0b7-0132-95b7-069bd379cd32/status?branch=master)](https://codeship.com/projects/73303)
 
 Web application for car renting https://autopark.herokuapp.com. In progress.
